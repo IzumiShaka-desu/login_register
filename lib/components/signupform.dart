@@ -39,7 +39,6 @@ class SignupForm extends StatelessWidget {
               ),
               SizedBox(height: 15),
               TextFormField(
-                keyboardType: TextInputType.visiblePassword,
                 obscureText: true,
                 decoration:
                     InputDecoration(labelText: ' Password'),
