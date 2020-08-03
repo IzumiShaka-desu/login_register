@@ -22,7 +22,6 @@ class SignupForm extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TextFormField(
-                keyboardType: TextInputType.name,
                 decoration:
                     InputDecoration(labelText: ' Nick Name'),
               ),
