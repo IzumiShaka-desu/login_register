@@ -25,9 +25,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  LoginForm loginForm=LoginForm();
-  bool isLoginPage=true;
-  
+  LoginForm loginForm = LoginForm();
+  bool isLoginPage = true;
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -85,15 +85,22 @@ class _HomeState extends State<Home> {
                 width: width - 10,
                 child: Column(
                   children: [
-                  (isLoginPage)?  loginForm:SignupForm(),
+                    (isLoginPage) ? loginForm : SignupForm(),
                     SizedBox(height: 20),
                     GestureDetector(
-                      onTap: (){
-                        setState(() {
-                          isLoginPage=!isLoginPage;
-                        });
-                      },
-                      child: LogOrReg(text1:(isLoginPage)?' I dont\' have an , ':' I already have an account, ',text2: (isLoginPage)?'Click here for Register!':'Click here for Login!', ))
+                        onTap: () {
+                          setState(() {
+                            isLoginPage = !isLoginPage;
+                          });
+                        },
+                        child: LogOrReg(
+                          text1: (isLoginPage)
+                              ? ' I dont\' have an , '
+                              : ' I already have an account, ',
+                          text2: (isLoginPage)
+                              ? 'Click here for Register!'
+                              : 'Click here for Login!',
+                        ))
                   ],
                 ),
               )),
@@ -138,10 +145,14 @@ class _HomeState extends State<Home> {
                   child: FlatButton(
                       color: Colors.greenAccent,
                       onPressed: () {
-                        (isLoginPage)?loginAction(context,loginForm.username,):signUpAction();
+                        (isLoginPage)
+                            ? loginAction(
+                                context, loginForm.username, loginForm.password)
+                            : signUpAction();
                       },
                       child: Center(
-                          child: Text((isLoginPage)?'Login Now':'Sign up now',
+                          child: Text(
+                              (isLoginPage) ? 'Login Now' : 'Sign up now',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 18,
@@ -155,4 +166,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
