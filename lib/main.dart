@@ -25,6 +25,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  GlobalKey<ScaffoldState> _sfKey=GlobalKey<ScaffoldState>();
   LoginForm loginForm = LoginForm();
   bool isLoginPage = true;
 
@@ -33,6 +34,7 @@ class _HomeState extends State<Home> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
+      key: _sfKey,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
