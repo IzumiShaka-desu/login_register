@@ -134,7 +134,9 @@ class _HomeState extends State<Home> {
                   height: height / 10,
                   child: FlatButton(
                       color: Colors.greenAccent,
-                      onPressed: () {},
+                      onPressed: () {
+                        (isLoginPage)?LoginAction():SignUpAction();
+                      },
                       child: Center(
                           child: Text((isLoginPage)?'Login Now':'Sign up now',
                               style: TextStyle(
@@ -151,24 +153,5 @@ class _HomeState extends State<Home> {
   }
 }
 
-class LogOrReg extends StatelessWidget {
-  final String text1,text2;
-  const LogOrReg({this.text1,this.text2,
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: RichText(
-          text: TextSpan(
-              text: text1,
-              style: TextStyle(color: Colors.black),
-              children: [
-            TextSpan(
-                text: text2,
-                style: TextStyle(color: Colors.lightBlue))
-          ])),
-    );
-  }
+LoginAction() {
 }
