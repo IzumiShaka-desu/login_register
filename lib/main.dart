@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:login_register/components/loginform.dart';
+import 'package:login_register/utils.dart';
 
+import 'components/logorreg.dart';
 import 'components/signupform.dart';
 
 void main() {
@@ -23,6 +25,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  LoginForm loginForm=LoginForm();
   bool isLoginPage=true;
   
   @override
@@ -82,7 +85,7 @@ class _HomeState extends State<Home> {
                 width: width - 10,
                 child: Column(
                   children: [
-                  (isLoginPage)?  LoginForm():SignupForm(),
+                  (isLoginPage)?  loginForm:SignupForm(),
                     SizedBox(height: 20),
                     GestureDetector(
                       onTap: (){
@@ -135,7 +138,7 @@ class _HomeState extends State<Home> {
                   child: FlatButton(
                       color: Colors.greenAccent,
                       onPressed: () {
-                        (isLoginPage)?LoginAction():SignUpAction();
+                        (isLoginPage)?loginAction(context,loginForm.username,):signUpAction();
                       },
                       child: Center(
                           child: Text((isLoginPage)?'Login Now':'Sign up now',
@@ -153,5 +156,3 @@ class _HomeState extends State<Home> {
   }
 }
 
-LoginAction() {
-}
