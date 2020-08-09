@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'dashboard_screens.dart';
+
 SnackBar buildSnackBar(String message,Color color,IconData icon) => SnackBar(
         content: Container(
       child: Center(
@@ -17,7 +19,7 @@ loginAction(BuildContext context, GlobalKey<ScaffoldState> key, String username,
     String password) {
   if (username.trim() == "admin" && password == "admin") {
     key.currentState.showSnackBar(buildSnackBar('login Succesfull',Colors.greenAccent[700],Icons.check));
-    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DashBoard({username:username,password:password})));
+    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DashBoard(username:username,password:password)));
   }else{
     key.currentState.showSnackBar(buildSnackBar('username or password wrong ,please try again',Colors.orange[700],Icons.warning));
   }
