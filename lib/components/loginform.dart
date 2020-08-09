@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   const LoginForm({
     Key key,
   }) : super(key: key);
 
+  @override
+  _LoginFormState createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  var controller={
+    'username':TextEditingController(),
+    'password':TextEditingController()
+  };
+  get username =>controller['username'].text;
+  get password =>controller['password'].text;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,12 +35,13 @@ class LoginForm extends StatelessWidget {
               
               SizedBox(height: 15),
               TextFormField(
-                keyboardType: TextInputType.emailAddress,
+                controller: controller['username'],
                 decoration:
-                    InputDecoration(labelText: ' Email'),
+                    InputDecoration(labelText: ' Username'),
               ),
               SizedBox(height: 15),
               TextFormField(
+                controller: controller['password'],
                 obscureText: true,
                 decoration:
                     InputDecoration(labelText: ' Password'),
